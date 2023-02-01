@@ -1,5 +1,41 @@
-data = (input("Enter some data:"))
-print = (data, type[data])
-data = int(data)
-print(data, type[data])
-print(data+1)
+# Module
+    #module is just a fancy name for a python file
+#'print'
+#'input'
+#'int()'
+## built in functions
+## library functions
+    # 'random'
+    # 'math'
+# import random
+# import math
+# used so you can import librarys that you need
+# always put all imports first in the file
+#print (math.pi)
+import turtle
+pen = turtle.Turtle()
+pen2 = turtle.Turtle()
+pen.shape("turtle")
+pen2.shape("turtle")
+pen.color("green")
+pen2.color("cyan")
+pen.speed(2)
+pen2.speed(1)
+pen.left(90)
+pen2.left(5)
+pen2.up()
+pen.down()
+pen2.right(50)
+pen2.left(50)
+window = turtle.Screen()
+# variable = module.function()
+pen.forward(100)
+pen2.forward(50)
+#var = math.pi
+#interface: what can i tell it to do, abstract away the details
+#state: value of all its attributes
+window.exitonclick()
+var = [1,2,3,4,5]
+var.append(6) #add to the end
+
+# window.exitonclick always must be the last turtle command
