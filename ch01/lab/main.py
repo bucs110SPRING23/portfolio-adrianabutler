@@ -11,3 +11,7 @@ print("Number of weeks:", weeks)
 print("Classes:", classes)
 print("Tuition:", tuition)
 print("Classes per week:", classes_per_week)
+#PartB
+import random
+mylist=["yellow","banana","alien","cyan","panda"]
+print(random.choice(mylist))
