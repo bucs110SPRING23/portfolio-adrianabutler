@@ -39,3 +39,31 @@ var = [1,2,3,4,5]
 var.append(6) #add to the end
 
 # window.exitonclick always must be the last turtle command
+#mynums=[]
+#var=int(input("Enter a number:"))
+#mynums.append(var)
+#print(mynums)
+#mynums=[]
+#var=int(input("Enter another number:"))
+#mynums.append(var)
+#print(mynums)
+#mynums=[]
+#var=int(input("Enter another number:"))
+#mynums.append(var)
+#print(mynums)
+
+
+## for loop allows you to repeat a sequential algorithm on sequential data
+#for iterating_variable in sequence:
+    # itll do something with said variable
+
+msg = "Enter 3 numbers"
+mynums=[]
+for i in []:
+    var=int(input(":"))
+    mynums.append(var)
+    print(mynums)
+print("all done")
+
+    #Block Statement
+    #always ends in a colon
