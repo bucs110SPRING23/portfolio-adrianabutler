@@ -1,10 +1,6 @@
-
-#Part A
-weeks = 16
-classes = 5
-tuition = 6000
-cost_per_week = ((tuition / classes) / weeks)
-print("Cost per week:", cost_per_week)
-
-
-#Part B
+import pygame
+pygame.init()
+screen=pygame.display.set_mode()
+screen_size=screen.get_size()
+dimensions=[screen_size[0]/2, screen_size[1]/2,250,250]
+pygame.draw.rect(screen,"black", dimensions)
