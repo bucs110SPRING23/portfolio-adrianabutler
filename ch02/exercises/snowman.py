@@ -1,5 +1,4 @@
 while 1:
-    pygame.event.get()
     import pygame
     pygame.init()
 
