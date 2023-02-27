@@ -73,4 +73,5 @@ for contact in contacts:
     if contact[0] == name:
         print(contacts(1))
         break
-print(contacts("Suzie"))
+print(contacts["Suzie"])
+
