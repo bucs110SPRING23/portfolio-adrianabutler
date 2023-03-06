@@ -7,3 +7,7 @@ mytuple = (5,2,3,6,1)
 mydictionary = {"a":1, "b":2, "c":3}
 mydictionary["a"]
 mydictionary["b"]
+# while loop
+# while <boolean conditions>
+#       <code block>
+# otherwise skips it
