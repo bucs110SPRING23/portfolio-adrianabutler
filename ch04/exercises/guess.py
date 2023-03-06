@@ -1,14 +1,24 @@
 import random
-num = random.randrange(1,1001)
-tries = 1
-for i in range(1000):
-    guess = int(input("Guess the number 1 through 1000:"))
-if guess == num:
-    print("You guessed it! My number was", num, "it took you", tries, "tries to guess")
-    break
-elif guess < num:
-    print("Too Low!")
-    tries = tries + 1
-elif guess > num:
-    print("Too High!")
-    tries = tries + 1
+guess = int(input("Please enter a number between 1-10: "))
+x = random.randrange(1,10)
+
+count = []
+
+while guess != x:
+    n = 1
+    if guess < x:
+        print("Too Low!")
+        n = n + 1
+        count.append([n])
+        guess = int(input("Please enter a number between 1-1000: "))
+    elif guess > x:
+        print("Too High!")
+        n = n + 1
+        count.append([n])
+        guess = int(input("Please enter a number between 1-1000: "))
+
+if guess == x: 
+    print("correct!!")
+
+print(x)
+print("It took you", count, "tries")
