@@ -1,6 +1,6 @@
 import random
-guess = int(input("Please enter a number between 1-10: "))
-x = random.randrange(1,10)
+guess = int(input("Please enter a number between 1-1000: "))
+x = random.randrange(1,1001)
 
 count = []
 
