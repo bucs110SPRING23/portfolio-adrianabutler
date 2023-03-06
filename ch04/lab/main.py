@@ -3,7 +3,14 @@ import random
 import math
 
 pygame.init()
-screen = pygame.display.set_mode(1500,1500)
+screen = pygame.display.set_mode()
+x = pygame.display.get_window_size() [0]/2
+y = pygame.display.get_window_size() [1]/2
+screen.fill("cyan")
+pygame.draw.circle(screen, "gold", [x,y], y)
+
+pygame.init()
+screen = pygame.display.set_mode()
 screensize = pygame.display.get_window_size()
 x = screensize [0]/2
 y = screensize [1]/2
