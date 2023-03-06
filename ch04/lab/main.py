@@ -4,111 +4,76 @@ import math
 
 pygame.init()
 screen = pygame.display.set_mode()
-x = pygame.display.get_window_size() [0]/2
-y = pygame.display.get_window_size() [1]/2
-screen.fill("cyan")
-pygame.draw.circle(screen, "gold", [x,y], y)
+width, height = pygame.display.get_window_size()
+hitbox_width = width/2
+hitbox_height = height/2
 
-pygame.init()
-screen = pygame.display.set_mode()
-screensize = pygame.display.get_window_size()
-x = screensize [0]/2
-y = screensize [1]/2
-screen.fill("cyan")
-pygame.draw.circle(screen, "gold", [x,y], y)
-pygame.display.flip
-pygame.draw.line(screen, "hotpink", (x+y, y), (x-y,y), width = 5)
-pygame.display.flip
-pygame.draw.line(screen, "hotpink", (x, x+y), (x, y-x), width = 5)
-pygame.display.flip
-playerblue = []
-playerred = []
-
-score = []
-
-done = False
 hitboxes = {
-    "red" : pygame.rect(0,0,50,50),
-    "blue" : pygame.rect(0,0,50,50)
+    "red" : pygame.rect(0, 0, hitbox_width, hitbox_height),
+    "blue" : pygame.rect(0, 0, hitbox_width, hitbox_height)
 }
 
-hitboxes["red"].topleft = hitboxes["blue"].topright
-
-colors = {
-    "red" : (255,105,180),
-    "blue" : (34,139,34)
+hitboxes["blue"].topleft = hitboxes["red"].topright
+main_colors = {
+    "red" : (200, 200, 0),
+    "blue" : (0, 200, 0)
 }
-
-while not done:
-    for c,hb in hitboxes.items():
-        pygame.draw.rect(screen,colors[c],hb)
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if hitboxes["red"].collidepoint(event.pos):
-                score = "red"
-            elif hitboxes["blue"].collidepoint(event.post):
-                score = "blue"
-    for _ in range(11):
-        for i in range(2):
-            dart1 = random.randrange(screensize [0])
-            dart2 = random.randrange(screensize [1])
-            distance_from_center = math.hypot(x-dart1,y-dart2)
-            is_in_circle = distance_from_center <= x
-            if i == 0:
-                if is_in_circle:
-                    dart = pygame.draw.circle(screen, "green", [dart1,dart2], 20)
-                    pygame.display.flip()
-                    pygame.time.wait(1000)
-                    playerblue.append("hit")
-                elif not is_in_circle:
-                    dart = pygame.draw.circle(screen, "purple", [dart1,dart2], 20)
-                    pygame.display.flip()
-                    pygame.time.wait(1000)
-            elif i == 1:
-                if is_in_circle:
-                    dart = pygame.draw.circle(screen, "aquamartine", [dart1,dart2], 20)
-                    pygame.display.flip()
-                    pygame.time.wait(1000)
-                    playerred.append("hit")
-                elif not is_in_circle:
-                    dart = pygame.draw.circle(screen, "magenta", [dart1,dart2], 20)
-                    pygame.display.flip()
-                    pygame.time.wait(1000)
-
-print(playerred)
-print(playerblue)
-
-if len(playerblue) >  len(playerred):
-    if score == "blue":
-        font = pygame.font.Font(None, 48)
-        text = font.render("Blue player won, correct!", True, "black")
-        screen.blit(text, (x,y))
-        pygame.display.flip()
+hightlight_colors = {
+    "red" : (255, 255, 0),
+    "blue" : (0, 255, 0)
+}
+font = pygame.font.Font(None, 48)
+text = font.render("Who will win?: Red or Blue?", True, "Black")
+text = font.render("Click a box", True, "black")
+screen.blit(text, (0, 0))
+screen = pygame.display.set_mode((1500, 1500))
+pygame.display.get_window_size()
+screensize = 1500
+screen.fill("aquamarine")
+pygame.draw.circle(screen, "black", (850,850), 850)
+pygame.draw.circle(screen, "purple", (850, 850), 850)
+pygame.draw.line(screen, "black", (850, 0), (850, 1500))
+pygame.draw.line(screen, "black", (0, 850), (1500, 850))
+playerblue_score = 0
+playerred_score = 0
+for i in range (11):
+    x1 = 850
+    y1 = 850
+    x2 = random.randrange(0, screensize)
+    y2 = random.randrange(0, screensize)
+    playerblue = (x2, y2)
+    distance_from_center = math.hypot(x1 - x2, y1 - y2)
+    is_in_circle = distance_from_center <= 850
+    if is_in_circle:
+        pygame.draw.circle(screen, "blue", (x2, y2), 10)
+        playerblue_score += 1
     else:
-        font = pygame.font.Font(None, 48)
-        text = font.render("Blue player won, incorrect!", True, "black")
-        screen.blit(text, (x,y))
-        pygame.display.flip()
-
-elif len(playerblue) < len(playerred):
-    if score == "red":
-        font = pygame.font.Font(None, 48)
-        text = font.render("Red player won, correct", True, "black")
-        screen.blit(text, (x,y))
-        pygame.display.flip()
+        pygame.draw.circle(screen, "orange", (x2, y2), 10)
+    x3 = random.randrange(0, screensize)
+    y3 = random.randrange(0, screensize)
+    playerred = (x3, y3)
+    distance_from_center = math.hypot(x1 - x3, y1 - y3)
+    is_in_circle = distance_from_center <= 850
+    if is_in_circle:
+        pygame.draw.circle(screen, "red", (x3, y3), 10)
+        playerred_score += 1
     else:
-        font = pygame.font.Font(None, 48)
-        text = font.render("Red player won, incorrect", True, "black")
-        screen.blit(text, (x,y))
-        pygame.display.flip()
+        pygame.draw.circle(screen, "orange", (x3, y3), 10)
+if playerblue_score > playerred_score:
+    font = pygame.font.Font(None, 48)
+    msg = ("Player Blue won and they scored" + str(playerblue_score) + "points!")
+    text = font.render(msg, True, "White")
+    screen.blit(text, (0,0))
+elif playerblue_score < playerred_score:
+    font = pygame.font.Font(None, 48)
+    msg = ("Player Red won and they scored", + str(playerred_score) + "points!")
+    text = font.render(msg, True, "white")
+    screen.blit(text, (0,0))
+elif playerblue_score == playerred_score:
+    font = pygame.font.Font(None, 48)
+    msg = ("It's a tie! They both scored" + str(playerblue_score) + "ponts!")
+    text = font.render (msg, True, "white")
+    screen.blit(text, (0,0))
 
-else:
-    if score == "pint" or "green":
-        font = pygame.font.Font(None, 48)
-        text = font.render("Tie Game!", True, "black")
-        screen.blit(text, (x,y))
-        pygame.display.flip()
-
-done = True
-
+pygame.display.flip()
 pygame.time.wait(1000)
