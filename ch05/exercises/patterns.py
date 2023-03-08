@@ -1,12 +1,12 @@
-def star_pyramid(p):
-    for _ in range(p+1):
-        print("*" * _ )
+def star_pyramid(rows):
+    for i in range(1, rows + 1):
+        print("*" * i)
 
-star_pyramid(int(input("Enter a number to determine the amount of layers in your pyramid: ")))
+def rstar_pyramid(stars):
+    for i in range(stars, 0, -1):
+        print("*" * i)
 
-def rstar_pyramid(p):
-    for _ in range(p+1):
-        print("*" * p)
-        p -=1
+levels = int(input("Enter the desired pyramid height: "))
 
-rstar_pyramid(int(input("Enter a number to determine the amount of layers in your pyramid: ")))
+star_pyramid(levels)
+rstar_pyramid(levels)
