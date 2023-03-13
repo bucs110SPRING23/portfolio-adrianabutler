@@ -53,8 +53,9 @@ turtle.exitonclick()
 import pygame
 import math
 pygame.init()
-window = pygame.display.set_mode()
 
+window = pygame.display.set_mode()
+window.fill("gray")
 points = []
 side_length = 100
 xpos = 300
@@ -62,8 +63,7 @@ ypos = 300
 num_sides = [ 3, 4, 6, 20, 100, 360]
 
 for i in range (6):
-    listofshapes = num_sides[i]
-    window.fill("gray")
+    listofshapes = num_sides[i] 
     pygame.display.flip()
     pygame.time.wait(2000)
     for i in range(listofshapes):
