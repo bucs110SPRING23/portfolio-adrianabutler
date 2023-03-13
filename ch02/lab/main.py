@@ -1,10 +1,80 @@
+import turtle
+import random
+x = random.randrange(1,10)
+print(x)
 
-#Part A
-weeks = 16
-classes = 5
-tuition = 6000
-cost_per_week = ((tuition / classes) / weeks)
-print("Cost per week:", cost_per_week)
+# Race 1
 
+screen = turtle.Screen()
+turtle1 = turtle.Turtle()
+turtle2 = turtle.Turtle()
 
-#Part B
+turtle1.penup()
+turtle1.goto(-100,20)
+turtle1.pendown
+
+turtle2.penup()
+turtle2.goto(-100,-20)
+turtle2.pendown
+
+turtle1.forward(random.randrange(1,100))
+turtle2.forward(random.randrange(1,100))
+
+turtle1.penup()
+turtle2.penup()
+
+turtle1.goto(-100,20)
+turtle2.goto(-100,-20)
+
+# Race 2
+turtle1.pendown()
+turtle2.pendown()
+
+turtle1.speed(1)
+turtle2.speed(2)
+
+turtle1.color("pink")
+turtle2.color("green")
+
+for i in range(10):
+    turtle1.forward(random.randrange(1,100))
+    turtle2.forward(random.randrange(1,100))
+
+turtle1.penup()
+turtle2.penup()
+
+turtle1.goto(-100,20)
+turtle2.goto(-100,-20)
+
+turtle.exitonclick()
+
+# Part B
+
+import pygame
+import math
+pygame.init()
+
+window = pygame.display.set_mode()
+window.fill("gray")
+points = []
+side_length = 100
+xpos = 300
+ypos = 300
+num_sides = [ 3, 4, 6, 20, 100, 360]
+
+for i in range (6):
+    listofshapes = num_sides[i] 
+    pygame.display.flip()
+    pygame.time.wait(2000)
+    for i in range(listofshapes):
+        angle = 360 / listofshapes
+        radians = math.radians(angle * i)
+        x = xpos + side_length * math.cos(radians)
+        y = ypos + side_length * math.sin(radians)
+        points.append([x , y])
+    pygame.draw.polygon(window, "green", points)
+    pygame.display.flip()
+    pygame.time.wait(2000)
+
+    window.fill("gray")
+    points = []
