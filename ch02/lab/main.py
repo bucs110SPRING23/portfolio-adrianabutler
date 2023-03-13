@@ -61,17 +61,20 @@ xpos = 300
 ypos = 300
 num_sides = [ 3, 4, 6, 20, 100, 360]
 
-for side in num_sides:
+for i in range (6):
+    listofshapes = num_sides[i]
     window.fill("gray")
     pygame.display.flip()
     pygame.time.wait(2000)
-    for i in range(side):
-        angle = 360 / side
+    for i in range(listofshapes):
+        angle = 360 / listofshapes
         radians = math.radians(angle * i)
         x = xpos + side_length * math.cos(radians)
         y = ypos + side_length * math.sin(radians)
         points.append([x , y])
-    pygame.display.flip()
     pygame.draw.polygon(window, "green", points)
     pygame.display.flip()
     pygame.time.wait(2000)
+
+    window.fill("gray")
+    points = []
