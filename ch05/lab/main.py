@@ -14,45 +14,32 @@ def threenp1(n):
 def threenp1range(upperlimit):
     threenplus1_dictionary = {}
     for n in range(2, upperlimit+1):
-        iters = threenp1(n)
-        threenplus1_dictionary = iters
+        count = threenp1(n)
+        threenplus1_dictionary = count
         return threenplus1_dictionary
 
-def graph(value):
-    points = threenp1range(value)
-    coordinates = points.items()
-    print(coordinates)
+def graph_coordinates(threeplus1_iters_dict):
     pygame.init
-    screen = pygame.display.set_mode((500,500))
-    pygame.draw.lines(screen, "black", False, list(coordinates))
-    pygame.display.flip()
-    new_screen = pygame.transform.flip(screen, False, True)
-    width, height = new_screen.get_size()
-    new_screen = pygame.transform.scale(new_screen, (width * 5, height * 5))
-    new_screen.blit(new_screen, (0,0))
-    pygame.display.flip()
+    while 1:
+        pygame.event.pump()
+        display = pygame.display.set_mode()
+        pygame.draw.lines(display, "black", False, list(threeplus1_iters_dict.items()))
+        dictionary = list(threeplus1_iters_dict.items())
+        max_so_far = 0
+        for i in range(len(dictionary)):
+            if (dictionary[i][1] > max_so_far):
+                max_so_far = dictionary[i][1]
+        new_display = pygame.transform.flip(display, False, False)
+        display.blit(new_display, (0, 0))
+        font = pygame.font.Font(None, 48)
+        msg = font.render(("Max so far is:" + str(max_so_far)), False, "aquamarine")
+        display.blit(msg, (1200, 10))
+        pygame.display.flip()
+        break
     pygame.time.wait(1000)
 
-    currentmax = 0
-    for key, value in coordinates:
-        if value > currentmax:
-            currentmax = value
-        else:
-            currentmax != value
-    print(currentmax)
-    font = pygame.font.Font(None, 100)
-    text = font.render(str(currentmax), True, "cyan")
-    pos = (20,20)
-    screen.blit(text, pos)
-    pygame.display.flip()
-    pygame.time.wait(1500)
-
-    return coordinates
-
 def main():
-    value = 600
-    print(threenp1(value))
-    print(threenp1range(value))
-    graph(value)
+    print(threenp1range(20))
+    graph_coordinates(threenp1range(20))
 
 main()
