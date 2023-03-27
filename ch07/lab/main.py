@@ -18,4 +18,5 @@ def main():
     srect = s.getRect()
     assert(srect.x,  s.getRect().y, srect.width,  srect.height) == (10,10,10,10)
     assert s.image
-    print("Test Complete!")
+
+print("Test Complete!")
