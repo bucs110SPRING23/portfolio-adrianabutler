@@ -2,6 +2,8 @@ import pygame
 import time
 import random
 
+from player import Player
+
 
 # import your controller
 
