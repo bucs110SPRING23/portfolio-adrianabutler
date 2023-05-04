@@ -1,4 +1,7 @@
 import pygame
+import time
+import random
+
 
 # import your controller
 
