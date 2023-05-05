@@ -5,39 +5,48 @@ import random
 pygame.init()
 class score:
     white = (255, 255, 255)
-yellow = (255, 255, 102)
-black = (0, 0, 0)
-red = (213, 50, 80)
-green = (0, 255, 0)
-blue = (50, 153, 213)
+    yellow = (255, 255, 102)
+    black = (0, 0, 0)
+    red = (213, 50, 80)
+    green = (0, 255, 0)
+    blue = (50, 153, 213)
 
-dis_width = 600
-dis_height = 400
-dis = pygame.display.set_mode()
+    dis_width = 600
+    dis_height = 400
+    dis = pygame.display.set_mode()
 
-clock = pygame.time.Clock()
+    clock = pygame.time.Clock()
 
-snake_block = 10
-snake_speed = 30
+    snake_block = 10
+    snake_speed = 30
 
-font_style = pygame.font.SysFont(None, 30)
-score_font = pygame.font.SysFont("comicsansms", 40)
+    font_style = pygame.font.SysFont(None, 30)
+    score_font = pygame.font.SysFont("comicsansms", 40)
 
-def your_score(score):
-    value = score_font.render("Your Score: " + str(score), True, yellow)
-    dis.blit(value, [0,0])
-    
-def our_snake(snake_block, snake_list):
-    for x in snake_list:
-        pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
+    def your_score(score):
+        dis_width = 600
+        dis_height = 400
+        dis = pygame.display.set_mode()
+        score_font = pygame.font.SysFont("comicsansms", 40)
+        value = score_font.render("Your Score: " + str(score), True, 'yellow')
+        dis.blit(value, [0,0])
 
-def message(msg, color):
-    mesg = font_style.render(msg, True, color)
-    dis.blit(mesg, [dis_width/6, dis_height/3])
+    def our_snake(snake_block, snake_list):
+            dis = pygame.display.set_mode()
+            for x in snake_list:
+                pygame.draw.rect(dis, 'black', [x[0], x[1], snake_block, snake_block])
 
-def gameLoop():
-    game_over = False
-    game_close = False
+    def message(msg, color):
+        dis_width = 600
+        dis_height = 400
+        dis = pygame.display.set_mode()
+        font_style = pygame.font.SysFont(None, 30)
+        mesg = font_style.render(msg, True, color)
+        dis.blit(mesg, [dis_width/6, dis_height/3])
+
+        def gameLoop():
+            game_over = False
+            game_close = False
 
     x1 = dis_width/2
     y1 = dis_height/2
@@ -61,7 +70,6 @@ def gameLoop():
     our_snake(snake_block, snake_list)
     your_score(length_of_snake-1)
     pygame.display.update()
-pygame.quit()
-quit()
-
-gameLoop()
+    pygame.quit()
+    quit()
+    gameLoop()
