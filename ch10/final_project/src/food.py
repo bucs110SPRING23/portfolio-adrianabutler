@@ -3,8 +3,8 @@ import random
 import time
 
 pygame.init()
-
-white = (255, 255, 255)
+class food():
+    white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
 blue = (0, 0, 255)
@@ -14,7 +14,6 @@ dis_heigth = 600
 
 dis = pygame.display.set_mode()
 clock = pygame.time.Clock
-
 snake_block = 10
 snake_speed = 30
 
@@ -38,7 +37,6 @@ def gameLoop():
     foody = round(random.randrange(0, dis_width-snake_block)/10.0)*10
 
     while not game_over:
-        dis.fill(white)
         message("You Lost! Press Q-Quit or C-Play Again", red)
         pygame.display.update()
 

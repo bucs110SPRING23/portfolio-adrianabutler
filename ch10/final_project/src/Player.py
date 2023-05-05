@@ -1,6 +1,6 @@
 import pygame
 pygame.init()
-class Player():
+class player():
     dis = pygame.display.set_mode()
 
     blue = (0,0,225)
