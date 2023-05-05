@@ -1,5 +1,9 @@
 import pygame
 pygame.init()
+from src.Player import player
+from src.food import food
+from src.longerandscore import score
+from src.controls import controls
 class over:
     red = (255, 0, 0)
 
