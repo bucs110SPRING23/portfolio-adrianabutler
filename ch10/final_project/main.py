@@ -2,7 +2,7 @@ import pygame
 import time
 import random
 
-from src.gameover import game_over
+from src.score import score
 
 # import your controller
 
