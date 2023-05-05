@@ -2,14 +2,15 @@ import pygame
 import time
 import random
 
-from player import Player
-
+from src.controls import controls
 
 # import your controller
 
 
 def main():
     pygame.init()
+    game = controls()
+    game.mainloop()
     # Create an instance on your controller object
     # Call your mainloop
 
