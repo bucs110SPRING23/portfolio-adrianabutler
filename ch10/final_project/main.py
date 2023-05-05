@@ -2,15 +2,15 @@ import pygame
 import time
 import random
 
-from src.controls import controls
+from src.gameover import game_over
 
 # import your controller
 
 
 def main():
     pygame.init()
-    game = controls()
-    game.mainloop()
+
+
     # Create an instance on your controller object
     # Call your mainloop
 
