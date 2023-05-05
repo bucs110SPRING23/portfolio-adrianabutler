@@ -1,15 +1,8 @@
 import pygame
 pygame.init
-from src.Player import player
-from src.food import food
-from src.longerandscore import score
-from src.gameover import over
+
 
 class controls():
-    white = (255,255,255)
-    black = (0,0,0)
-    red = (255, 0, 0)
-
     dis = pygame.display.set_mode()
 
     game_over = False
@@ -41,10 +34,10 @@ class controls():
                     y1_change = 10
         x1 += x1_change
         y1 += y1_change
-        dis.fill(white)
-        pygame.draw.rect(dis, black, [x1, y1, 10, 10])
+        dis.fill('white')
+        pygame.draw.rect(dis, 'black', [x1, y1, 10, 10])
 
         pygame.display.update()
         clock.tick(30)
     pygame.quit()
-quit()
+    quit()
