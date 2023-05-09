@@ -1,10 +1,16 @@
 import pygame
+import time
+import random
+
+from src.score import score
 
 # import your controller
 
 
 def main():
     pygame.init()
+
+
     # Create an instance on your controller object
     # Call your mainloop
 
